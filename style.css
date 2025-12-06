@@ -1,0 +1,147 @@
+.card {
+  width: 275px;
+  height: 375px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* contain absolutely-positioned children (card-border) */
+  flex-shrink: 0; /* prevent flex from shrinking fixed-width cards */
+  color: white;
+  transition: transform 0.2s ease;
+}
+.card-border {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.stats {
+  background-color: rgba(77, 77, 77, 0.5);
+  z-index: 10;
+  width: 210px;
+  height: 144px;
+  margin-top: 13px;
+}
+.cards {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  flex-wrap: wrap; /* allow cards to wrap on smaller screens */
+  align-items: flex-start;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* HP Bar Styling */
+.hp-bar-container {
+  display: none;
+  width: 240px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #cc0000;
+  border-radius: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+#Battle .hp-bar-container {
+  display: block;
+}
+
+.hp-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00ff00 0%, #ffff00 50%, #ff0000 100%);
+  width: 100%;
+  transition: width 0.5s ease;
+  border-radius: 3px;
+}
+
+.hp-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  z-index: 10;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+#Battle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#Battle .card {
+  margin: 158px;
+}
+/* Battle Button - Text to Icon on Hover */
+.battle-button {
+  background: linear-gradient(135deg, #cc0000 0%, #8b0000 100%);
+  color: white;
+  font-family: inherit;
+  padding: 0.8em 1.5em;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 0.9em;
+  border: 2px solid #660000;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.6);
+  transition: all 0.3s ease;
+  height: 3em;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.battle-button .button-text {
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.battle-button .button-icon {
+  position: absolute;
+  font-size: 2em;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(0);
+  z-index: 2;
+}
+
+.battle-button:hover {
+  background: linear-gradient(135deg, #990000 0%, #660000 100%);
+  box-shadow: 0 6px 20px rgba(139, 0, 0, 0.8);
+  transform: scale(1.05);
+}
+
+.battle-button:hover .button-text {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.battle-button:hover .button-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.battle-button:active {
+  transform: scale(0.98);
+}
