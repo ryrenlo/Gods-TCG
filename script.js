@@ -23,14 +23,21 @@ const gods = [
     hp: 2,
     Image: "imagh/zeus.png",
   },
-  { name: "God of Sea", atk: 2, def: 3, spd: 1, hp: 6, Image: "imagh/.png" },
+  {
+    name: "God of Sea",
+    atk: 2,
+    def: 3,
+    spd: 1,
+    hp: 6,
+    Image: "imagh/poseidon.png",
+  },
   {
     name: "God of Underworld",
     atk: 3,
     def: 2,
     spd: 1,
     hp: 4,
-    Image: "imagh/.png",
+    Image: "imagh/hades.png",
   },
 ];
 var combine = null;
