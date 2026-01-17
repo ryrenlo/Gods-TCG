@@ -60,7 +60,14 @@ function choose(cardNo, data) {
   ComputerChoice = AIchoose(gods);
   console.log(ComputerChoice);
   // keep a combined pair for battle calculations
-  combine = [PlayerChoice, ComputerChoice];
+  const clone = (obj) =>
+    typeof structuredClone === "function"
+      ? structuredClone(obj)
+      : JSON.parse(JSON.stringify(obj));
+
+  // keep a combined pair for battle calculations (cloned)
+  combine = [clone(PlayerChoice), clone(ComputerChoice)];
+
   ShowBattle(ComputerChoice, PlayerChoice);
 }
 
@@ -69,7 +76,6 @@ function PageLoad() {
   PlayerCards = ChooseRandom(gods);
   console.log(PlayerCards);
   ShowCards(PlayerCards);
-  combine = [PlayerChoice, ComputerChoice];
 }
 
 function ChooseRandom(data) {
